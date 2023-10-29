@@ -1,0 +1,15 @@
+{:tasks
+ {doctest {:doc "cabal repl --with-ghc=doctest"
+           :task (apply shell "cabal repl" (cons "--with-ghc=doctest" *command-line-args*))}
+  install {:doc "cabal install --overwrite-policy=always"
+           :task (apply shell "cabal install" (cons "--overwrite-policy=always" *command-line-args*))}
+  test {:doc "cabal test [-v] # for verbose output"
+        :task (apply shell "cabal test" (map (fn [x] (if (= x "-v") "--test-show-details=always" x))
+                                             *command-line-args*))}
+  run  {:doc "cabal run, but it always runs the exe"
+        :override-builtin true
+        :task (apply shell "cabal run" (cons "wai-precompressed" *command-line-args*))}
+  repl {:doc "cabal repl [-t] # for test mode"
+        :override-builtin true
+        :task (apply shell "cabal repl" (map (fn [x] (if (= x "-t") "test:fused-logger-aeson-test" x))
+                                             *command-line-args*))}}}
