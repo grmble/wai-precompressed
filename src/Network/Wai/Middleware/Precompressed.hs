@@ -92,7 +92,7 @@ precompress StaticSettings {ssLookupFile, ssGetMimeType} app req send =
       ssLookupFile pieces >>= \case
         LRFile f ->
           Just <$> ssGetMimeType f
-        _ -> return Nothing
+        _ -> pure Nothing
 
     appendExtension [txt] ext = [T.pack (T.unpack txt ++ ext)]
     appendExtension (h : r) ext = h : appendExtension r ext

@@ -41,7 +41,7 @@ spec = do
       \x -> (read . show) x `shouldBe` (x :: Encoding)
 
 instance Arbitrary Encoding where
-  arbitrary = oneof [return Brotli, return Gzip]
+  arbitrary = oneof [pure Brotli, pure Gzip]
 
 main :: IO ()
 main = hspec spec
