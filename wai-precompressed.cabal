@@ -1,10 +1,10 @@
 cabal-version:      3.6
 name:               wai-precompressed
-version:            0.1.0.0
-synopsis:           X the wai-precompresseding x
+version:            0.0.1.0
+synopsis:           Serving precompressed files (Brotli & Gzip)
 -- A longer description of the package.
 -- description:
-homepage:           https://wai-precompressed.com/wai-precompressed
+homepage:           https://github.com/grmble/wai-precompressed
 -- A URL where users can report bugs.
 -- bug-reports:
 license:            MIT
